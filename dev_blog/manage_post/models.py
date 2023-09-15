@@ -156,3 +156,28 @@ class Rating(models.Model):
         # Configuración de metadatos para el modelo
         verbose_name = 'Rating'  # Nombre en singular para el modelo en el panel de administración de Django
         verbose_name_plural = 'Ratings'  # Nombre en plural para el modelo en el panel de administración de Django
+
+
+# Definir el modelo de ArticleCategory
+class ArticleCategory(models.Model):
+    """
+    Esta clase representa la relación entre un artículo y una categoría en la aplicación web.
+
+    Atributos:
+        - category_id (ForeignKey): Una clave foránea que vincula la relación con una categoría.
+        - article_id (ForeignKey): Una clave foránea que vincula la relación con un artículo.
+
+    Meta:
+        - verbose_name (str): El nombre en singular para el modelo en el panel de administración.
+        - verbose_name_plural (str): El nombre en plural para el modelo en el panel de administración.
+    """
+
+    # Clave foránea que vincula la relación con una categoría
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # Clave foránea que vincula la relación con un artículo
+    article_id = models.ForeignKey(Article, on_delete=models.CASCADE)
+
+    class Meta:
+        # Configuración de metadatos para el modelo
+        verbose_name = 'ArticleCategory'
+        verbose_name_plural = 'ArticleCategories'
