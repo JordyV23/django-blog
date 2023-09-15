@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #Integracion de apps en el proyecto
-    #Carpeta.apps.laClaseQueTengaApps
+    # Integracion de apps en el proyecto
+    # Carpeta.apps.laClaseQueTengaApps
     'manage_post.apps.ManagePostConfig',
     'user.apps.UserConfig',
+    # Instalacion de DjangoCleanUp debe ir de ultimo
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +131,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# URL publica para los archivos media
+MEDIA_URL = '/media/'
+
+# Ubicacion del archivo media
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

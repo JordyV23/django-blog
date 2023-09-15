@@ -28,7 +28,7 @@ class Profile(models.Model):
     """
 
     # Campo de la foto de perfil del usuario (opcional)
-    photo = models.ImageField(blank=True, null=True)
+    photo = models.ImageField( upload_to='Profiles' , blank=True, null=True)
     # Campo de la profesión del usuario (opcional), limitada a 50 caracteres
     profession = models.CharField(max_length=50, null=True)
     # Campo de información adicional sobre el usuario (opcional)
@@ -43,3 +43,6 @@ class Profile(models.Model):
     facebook = models.URLField(max_length=50, null=True)
     # Clave foránea que vincula el perfil con un usuario (relación uno a uno)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+
+    def __str__(self):
+        return self.user.username

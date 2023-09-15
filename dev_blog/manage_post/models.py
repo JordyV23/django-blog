@@ -30,7 +30,7 @@ class Category(models.Model):
     # Campo de nombre de la categoría, se limita a 20 caracteres
     name = models.CharField(max_length=20)
     # Campo de imagen de la categoría, no puede estar en blanco (blank=False) y no puede ser nulo (null=False)
-    image = models.ImageField(blank=False, null=False)
+    image = models.ImageField( upload_to='Categories', blank=False, null=False)
     # Campo de slug (cadena amigable para URL) único para cada categoría, limitado a 40 caracteres
     slug = models.SlugField(unique=True, max_length=40)
     # Campo booleano que indica si la categoría está destacada, con un valor predeterminado de False
@@ -85,7 +85,7 @@ class Article(models.Model):
     # Campo de slug (cadena amigable para URL) único para cada artículo, limitado a 255 caracteres
     slug = models.SlugField(unique=True, max_length=255)
     # Campo de imagen del artículo
-    image = models.ImageField()
+    image = models.ImageField(upload_to='Articles', blank=False, null=False)
     # Campo de cuerpo del artículo
     body = models.TextField()
     # Clave foránea que vincula el artículo con un usuario
