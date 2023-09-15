@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Integracion de apps en el proyecto
+    #Carpeta.apps.laClaseQueTengaApps
+    'manage_post.apps.ManagePostConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
